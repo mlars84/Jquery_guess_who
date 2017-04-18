@@ -9,10 +9,10 @@ var nameArray = [
 var rand = randomNumber(0, nameArray.length-1);
 
 function onReady(){
-  //event listeners
+  //event listener
   $('.container').on('click', 'img', game);
   appendImgs();
-}
+} // end onReady
 
 function appendImgs(){
   // append data of img to the container to display on the DOM
@@ -20,7 +20,7 @@ function appendImgs(){
     $('.container').append("<img src='" + nameArray[i].image +"' data-name='" + nameArray[i].name + "'>");
   }
   $('#user').text(nameArray[rand].name); //putting random name on DOM
-}
+} // end appendImgs
 
 // used the onReady function to check if the data is correct/false
 function game () {
@@ -39,8 +39,8 @@ function game () {
         $('.results').empty();
       }, 2000);
   }
-}
+}// end game
 
 function randomNumber(min, max){
     return Math.floor(Math.random() * (1 + max - min) + min);
-}
+} // end randomNumber
