@@ -34,26 +34,24 @@ function game () {
   if ($(this).data('name') === nameArray[rand].name) {
     $('.results').text("You win!");
     $('.results').append("<img src='https://media.tenor.co/images/100e9b8bfac7ee3367d8db34530b49ad/tenor.gif'>");
-    setTimeout(function(){
-      $('.results').fadeOut('slow',function(){
-        $('.results').empty();
-        $('.results').fadeIn('fast');
-      });
+    fades();
       rand = randomNumber(0, nameArray.length-1);
       $('#user').text(nameArray[rand].name);
-    }, 2000);
   } else {
       $('.results').text("Try again");
       $('.results').append("<img src='http://i104.photobucket.com/albums/m166/Zain_Renault/you%20almost%20did%20the%20thing_zpsaxchewam.png' id='pic'>");
-      setTimeout(function(){
-        $('.results').fadeOut('slow', function(){
-          $('.results').empty();
-          $('.results').fadeIn('fast');
-        });
-
-      }, 2000);
+      fades();
   }
 }// end game
+
+function fades() {
+  setTimeout(function(){
+    $('.results').fadeOut('slow',function(){
+      $('.results').empty();
+      $('.results').fadeIn('fast');
+    });
+    }, 2000);
+} // end fades
 
 function randomNumber(min, max){
     return Math.floor(Math.random() * (1 + max - min) + min);
